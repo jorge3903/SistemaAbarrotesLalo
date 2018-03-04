@@ -11,12 +11,22 @@ import mx.uam.ayd.SistemaAbarrotesLalo.modelo.Cliente;
 import mx.uam.ayd.SistemaAbarrotesLalo.persistencia.DAOCliente;
 
 /**
- *
+ *Esta clase representa al servicio cliente
  * @author lalo
  */
 public class ServicioCliente {
         DAOCliente daoCliente=new DAOCliente();
 
+    /**
+     *Este metodo crea al cliente ypasa 
+     * todos los datos del control a la base de datos para agregar un cliente
+     * @param nombre
+     * @param cantidad
+     * @param fecha
+     * @return
+     * @throws SQLException
+     * @throws ParseException
+     */
     public boolean agregarCliente(String nombre, double cantidad, String fecha) throws SQLException, ParseException {
         Cliente cliente=new Cliente();
         boolean comprueva;

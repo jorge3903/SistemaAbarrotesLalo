@@ -27,6 +27,9 @@ public class ControlPrincipal {
     ControlInventario controlInventario1;
     ControlCliente controlCliente1;
 
+    /**
+     *inizializa la historia de usuario ""Cliente"
+     */
     public void revisarCliente(){
        controlCliente1=new ControlCliente();
        controlCliente1.iniciaControlCliente();

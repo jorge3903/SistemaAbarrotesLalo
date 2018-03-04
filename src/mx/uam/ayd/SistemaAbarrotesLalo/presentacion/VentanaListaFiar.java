@@ -6,7 +6,7 @@
 package mx.uam.ayd.SistemaAbarrotesLalo.presentacion;
 
 /**
- *
+ *Esta clase es la vista del menu de fiar
  * @author lalo
  */
 public class VentanaListaFiar extends javax.swing.JFrame {

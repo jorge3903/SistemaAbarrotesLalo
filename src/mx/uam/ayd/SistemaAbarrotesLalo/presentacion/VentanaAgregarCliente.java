@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *Esta clase representa la vista que permite agregar un cliente a la lista de fiar
  * @author lalo
  */
 public class VentanaAgregarCliente extends javax.swing.JFrame {
@@ -145,7 +145,9 @@ public class VentanaAgregarCliente extends javax.swing.JFrame {
         dispose();
         controlCliente1.iniciaControlCliente();
     }//GEN-LAST:event_jButtonRegresarActionPerformed
-
+   /*Este boton me permitira verificar que los datos esten correctos
+    *y mandar una notificacion si no es asi
+    */
     private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
         int cont=0;  
         if(jTextFieldNombre.getText().isEmpty()){

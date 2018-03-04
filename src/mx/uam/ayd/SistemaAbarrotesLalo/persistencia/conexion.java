@@ -3,11 +3,19 @@ package mx.uam.ayd.SistemaAbarrotesLalo.persistencia;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
+/**
+ *Esta clase se encarga de conectar todos los daos con la base de datos derby
+ * @author lalo
+ */
 public class conexion {
    
     Connection con=null;
     PreparedStatement stmt = null;
     
+    /**
+     *
+     * @return
+     */
     public Connection getConexion(){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
@@ -19,6 +27,11 @@ public class conexion {
         return con;
     }
     
+    /**
+     *
+     * @param consulta
+     * @return
+     */
     public ResultSet consulta(String consulta){
         ResultSet rs=null;
         try{
@@ -30,6 +43,16 @@ public class conexion {
         return rs;
     }
     
+    /**
+     *
+     * @param id
+     * @param nombre
+     * @param caducidad
+     * @param existencias
+     * @param precio
+     * @param marca
+     * @return
+     */
     public ResultSet agrega(int id,String nombre, String caducidad, int existencias, double precio, String marca){
         ResultSet rs=null;
         try{
@@ -56,6 +79,15 @@ public class conexion {
      
     }
     
+    /**
+     *
+     * @param id
+     * @param proveedor
+     * @param telefono
+     * @param nombre
+     * @param tipo
+     * @return
+     */
     public ResultSet agrega1(int id, String proveedor, String telefono, String nombre, String tipo){
         ResultSet rs=null;
         try{
@@ -80,6 +112,10 @@ public class conexion {
      
     }    
     
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args){
         conexion c=new conexion();
         c.getConexion();
@@ -111,6 +147,13 @@ public class conexion {
         return null;  
     }
     
+    /**
+     *Este metodo hace un insert de un cliente en la entidad CLiente
+     * @param nombre
+     * @param cantidad
+     * @param fecha
+     * @return true si todo esta bien, false si no
+     */
     public boolean agregaCliente(String nombre,double cantidad,String fecha){
         boolean comprueva = false;
         try{
