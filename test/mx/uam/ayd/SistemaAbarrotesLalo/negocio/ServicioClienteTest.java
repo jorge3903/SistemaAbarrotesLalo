@@ -44,14 +44,32 @@ public class ServicioClienteTest {
     public void testAgregarCliente() throws Exception {
         System.out.println("agregarCliente");
         String nombre = "jorge";
-        double cantidad = 0.0;
+        double cantidad = 4.0;
         String fecha = "2018/03/02";
         ServicioCliente instance = new ServicioCliente();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.agregarCliente(nombre, cantidad, fecha);
         assertEquals(expResult, result);
+        if(result != expResult){
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
+        }
+    }
+    
+     @Test
+    public void testAgregarCliente2() throws Exception {
+        System.out.println("agregarCliente");
+        String nombre = "carlos";
+        double cantidad = 5;
+        String fecha = "2018/03/02";
+        ServicioCliente instance = new ServicioCliente();
+        boolean expResult = true;
+        boolean result = instance.agregarCliente(nombre, cantidad, fecha);
+        assertEquals(expResult, result);
+        if(result !=expResult){
+            fail("The test case is a prototype.");
+        }
+        
     }
     
 }
