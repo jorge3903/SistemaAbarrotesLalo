@@ -20,4 +20,5 @@ public class ServicioCompañia {
         boolean estado= DAOCompañia1.AgregarCompañia(nombre);
          return estado;       
     }    
+   
 }
