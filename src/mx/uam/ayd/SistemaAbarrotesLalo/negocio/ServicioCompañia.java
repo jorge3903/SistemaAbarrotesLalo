@@ -19,6 +19,5 @@ public class ServicioCompañia {
     public boolean AgregarCompañia(String nombre) throws SQLException {
         boolean estado= DAOCompañia1.AgregarCompañia(nombre);
          return estado;       
-    }
-    
+    }    
 }
