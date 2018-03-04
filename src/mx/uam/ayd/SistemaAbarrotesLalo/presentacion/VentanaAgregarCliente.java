@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+
 /**
  *Esta clase representa la vista que permite agregar un cliente a la lista de fiar
  * @author lalo
