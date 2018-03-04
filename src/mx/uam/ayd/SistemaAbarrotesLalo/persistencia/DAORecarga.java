@@ -98,7 +98,23 @@ public class DAORecarga {
         }
         return tamaño;
     }
-   
+   /**
+     * Agrega una entidad de la clase Recarga dentro de la base de datos
+     * @param recarga1
+     * @return estado
+     * @throws SQLException
+     */
+    public boolean AgregaRecarga(Recarga recarga1) throws SQLException {
+       Statement statement = BaseDeDatos.getConexion().createStatement();
+        Random al= new Random();
+        int id = al.nextInt(1000);
+        int dia= recarga1.getFechaActual().getDayOfMonth();
+        int mes= recarga1.getFechaActual().getMonthValue();
+        int año=recarga1.getFechaActual().getYear();
+         statement.execute("INSERT INTO VENTA (IDVENTA, MONTO, FECHA) \n"
+                + "VALUES (" + id + "," + recarga1.getMonto() + "," + "'"+dia+"-"+mes+"-"+año+"')");
+        return true;
+    }
 }
 
 
