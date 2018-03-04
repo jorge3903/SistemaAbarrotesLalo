@@ -58,7 +58,7 @@ public class ServicioClienteTest {
     
      @Test
     public void testAgregarCliente2() throws Exception {
-        System.out.println("agregarCliente");
+        System.out.println("aceptacion de enteros");
         String nombre = "carlos";
         double cantidad = 5;
         String fecha = "2018/03/02";
