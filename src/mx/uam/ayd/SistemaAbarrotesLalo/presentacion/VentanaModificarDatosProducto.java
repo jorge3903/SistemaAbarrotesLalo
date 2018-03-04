@@ -78,11 +78,7 @@ public class VentanaModificarDatosProducto extends javax.swing.JFrame {
         jButtonVolver.setText("Volver ");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButtonVolverActionPerformed(evt);
-                } catch (SQLException ex) {
-                    Logger.getLogger(VentanaModificarDatosProducto.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                jButtonVolverActionPerformed(evt);
             }
         });
 
@@ -202,9 +198,13 @@ public class VentanaModificarDatosProducto extends javax.swing.JFrame {
         modificarProducto=controlProducto1.modificarProducto(id, nombre, caducidad, existencias, precio, marca); // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
-    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {//GEN-FIRST:event_jButtonVolverActionPerformed
+    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
         dispose();
-        controlProducto1.iniciaControlModificarProducto();
+     try {
+         controlProducto1.iniciaControlModificarProducto();
+     } catch (SQLException ex) {
+         Logger.getLogger(VentanaModificarDatosProducto.class.getName()).log(Level.SEVERE, null, ex);
+     }
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
     /**
@@ -231,6 +231,22 @@ public class VentanaModificarDatosProducto extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(VentanaModificarDatosProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VentanaModificarDatosProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        /* java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+        new VentanaModificarDatosProducto().setVisible(true);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        /* java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+        new VentanaModificarDatosProducto().setVisible(true);
         }
         //</editor-fold>
         //</editor-fold>

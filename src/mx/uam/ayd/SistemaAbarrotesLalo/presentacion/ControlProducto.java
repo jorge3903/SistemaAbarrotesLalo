@@ -16,8 +16,9 @@ public class ControlProducto {
     double precioProducto;
     Producto agregaProducto;
     Producto modificarProducto;
+ 
     /**
-     *  Inicia el caso de uso agregar  producto
+     *
      */
     public void iniciaControlAgregarProducto() {
         VentanaAgregarProducto ventanaAgregarProducto = new VentanaAgregarProducto(this);
@@ -25,7 +26,7 @@ public class ControlProducto {
     }
 
     /**
-     * inicia el caso de uso modificar producto
+     *
      * @throws SQLException
      */
     public  void iniciaControlModificarProducto() throws SQLException {
@@ -35,7 +36,7 @@ public class ControlProducto {
     }
 
     /**
-     * Inicia el caso de uso de consultar precio
+     *
      */
     public void iniciaControlConsultarProducto() {
        VentanaConsultaDePrecios ventanaConsultaPrecio= new VentanaConsultaDePrecios(this);
@@ -44,7 +45,7 @@ public class ControlProducto {
     }
 
     /**
-     * Finaliza la ventana y regresa al menu principal
+     *
      */
     public void finalizaControl() {
         ControlPrincipal controlPrincipal1 = new ControlPrincipal();
@@ -52,7 +53,7 @@ public class ControlProducto {
     }
 
     /**
-     * Parte del flujo principal de Modificar Productos
+     *
      */
     public void modificarDatosProducto(){
        VentanaModificarDatosProducto ventanaModificarDatosProducto= new VentanaModificarDatosProducto(this);
@@ -60,19 +61,7 @@ public class ControlProducto {
    } 
 
     /**
-     * Busca un producto usando su nombre
-     * @param nombreProducto
-     * @return 
-     * @throws SQLException
-     */
-    public double buscarProducto(String nombreProducto) throws SQLException {
-       precioProducto= servicioProducto1.buscaProducto(nombreProducto);
-       return precioProducto;
-    }
-    
-
-    /**
-     * Agrega un producto dentro de la base de datos
+     *
      * @param id
      * @param nombre
      * @param caducidad
@@ -86,11 +75,19 @@ public class ControlProducto {
        agregaProducto= servicioProducto1.agregarProducto(id, nombre, caducidad, existencias, precio, marca);
        return agregaProducto;
     }
-    
-   
+    /**
+     *
+     * @param nombreProducto
+     * @return 
+     * @throws SQLException
+     */
+    public double buscarProducto(String nombreProducto) throws SQLException {
+       precioProducto= servicioProducto1.buscaProducto(nombreProducto);
+       return precioProducto;
+    }
 
     /**
-     * LLena los datos del combo box 
+     *
      * @return
      * @throws SQLException
      */
@@ -100,30 +97,16 @@ public class ControlProducto {
         return listaproductos;
    }
 
-    /**
-     * Modifica los datos de un producto dentro de la base de datos
-     * @param nombre
-     * @return
-     */
-    public String modificarDatosProducto(String nombre) {
+    String modificarDatosProducto(String nombre) {
        VentanaModificarDatosProducto ventanaModificarDatosProducto= new VentanaModificarDatosProducto(this);
        ventanaModificarDatosProducto.nombre(nombre);
        ventanaModificarDatosProducto.setVisible(true);
        return nombre;
     }
 
-    /**
-     * Modifica todos los datos de un producto contenido dentro de la base de datos
-     * @param id
-     * @param nombre
-     * @param caducidad
-     * @param existencias
-     * @param precio
-     * @param marca
-     * @return
-     */
-    public Producto modificarProducto(String id, String nombre, String caducidad, String existencias, String precio, String marca) {
+    Producto modificarProducto(String id, String nombre, String caducidad, String existencias, String precio, String marca) {
        modificarProducto= servicioProducto1.modificarProducto(id, nombre, caducidad, existencias, precio, marca);
        return modificarProducto;
     }
- }
+   
+}

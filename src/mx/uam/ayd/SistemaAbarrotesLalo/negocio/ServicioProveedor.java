@@ -1,4 +1,5 @@
 
+
 package mx.uam.ayd.SistemaAbarrotesLalo.negocio;
 
 import java.sql.SQLException;
@@ -7,15 +8,17 @@ import mx.uam.ayd.SistemaAbarrotesLalo.modelo.Proveedor;
 import mx.uam.ayd.SistemaAbarrotesLalo.persistencia.DAOProveedor;
 
 /**
- *Esta clase realza las reglas y los procesos de negocio de la entidad ptoveedor
- * @author lalo
+ *
+ * @author Byakuya
  */
 public class ServicioProveedor {
     
     DAOProveedor daoProveedores=new DAOProveedor();
     Proveedor agregaProveedor;
+    Proveedor modificarProveedor;
+    
     /**
-     *Este metodo recupera todos los nombres proovedores de la base de datos
+     * Metodo para recupera datos de la base de datos
      * @return
      * @throws SQLException
      */
@@ -24,9 +27,10 @@ public class ServicioProveedor {
         listaprovedores=daoProveedores.recuperaProveedores();
         return listaprovedores;
     }
-    
+
     /**
-     *
+     *Metodo para agregar un proveedor 
+     * 
      * @param id
      * @param proveedor
      * @param telefono
@@ -39,5 +43,20 @@ public class ServicioProveedor {
        agregaProveedor=daoProveedores.agregaProveedor(id, proveedor, telefono, nombre, tipo);
        return agregaProveedor;
     }
-    
+
+    /**
+     *Metodo para modificar un proveedor
+     * 
+     * @param id
+     * @param proveedor
+     * @param telefono
+     * @param nombre
+     * @param tipo
+     * @return
+     */
+    public Proveedor modificarProveedor(String id, String proveedor, String telefono, String nombre, String tipo) {
+       modificarProveedor=daoProveedores.modificarProveedor(id, proveedor, telefono, nombre, tipo);
+       return modificarProveedor;
+    }
+
 }

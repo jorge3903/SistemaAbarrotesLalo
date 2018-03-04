@@ -133,7 +133,11 @@ public class VentanaProveedores extends javax.swing.JFrame {
 
     private void jButtonModificarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarProveedorActionPerformed
        dispose();
-        controlProveedores1.iniciaControlModificarProveedor();
+       try {
+           controlProveedores1.iniciaControlModificarProveedor();
+       } catch (SQLException ex) {
+           Logger.getLogger(VentanaProveedores.class.getName()).log(Level.SEVERE, null, ex);
+       }
     }//GEN-LAST:event_jButtonModificarProveedorActionPerformed
 
     /**
@@ -160,6 +164,20 @@ public class VentanaProveedores extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(VentanaProveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VentanaProveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+        new VentanaProveedores().setVisible(true);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+        new VentanaProveedores().setVisible(true);
         }
         //</editor-fold>
 

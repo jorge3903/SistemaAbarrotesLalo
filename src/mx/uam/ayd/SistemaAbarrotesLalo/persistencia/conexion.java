@@ -147,6 +147,31 @@ public class conexion {
         return null;  
     }
     
+      ResultSet modifica1(String id, String proveedor, String telefono, String nombre, String tipo) {
+        ResultSet rs=null;
+        try{
+            stmt = con.prepareStatement("UPDATE Proveedor  SET NOMBRE=?, TELEFONO=?, COMPAÑIA=?, TIPO_PRODUCTO=?"
+            + "WHERE IDPROVEEDOR =?");
+            stmt.setString(1,id);
+            stmt.setString(2,proveedor);
+            stmt.setString(3,telefono);
+            stmt.setString(4,nombre);
+            stmt.setString(5,tipo);
+            
+            
+            int retorno = stmt.executeUpdate();
+            if (retorno>0)
+            {
+            JOptionPane.showMessageDialog(null,"Tu Proveedor ha sido modificado ");
+            System.out.println("Modificado correctamente");
+            }
+            
+        }catch(Exception ex){
+             JOptionPane.showMessageDialog(null,"Error"+ex.getMessage());
+        }
+        return null;  
+    }
+    
     /**
      *Este metodo hace un insert de un cliente en la entidad CLiente
      * @param nombre

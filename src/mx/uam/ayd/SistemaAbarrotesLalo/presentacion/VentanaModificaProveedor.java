@@ -5,6 +5,11 @@
  */
 package mx.uam.ayd.SistemaAbarrotesLalo.presentacion;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author alumnocbi
@@ -14,6 +19,7 @@ ControlProveedores controlProveedores1= new ControlProveedores();
 listener listener1= new listener();
     /**
      * Creates new form VentanaModificaProveedor
+     * @param controlProveedores
      */
     public VentanaModificaProveedor(ControlProveedores controlProveedores) {
         this.controlProveedores1=controlProveedores;
@@ -32,9 +38,9 @@ listener listener1= new listener();
 
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jButtonVolver = new javax.swing.JButton();
         jButtonBuscar = new javax.swing.JButton();
+        jComboBoxProveedor = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -51,10 +57,16 @@ listener listener1= new listener();
             }
         });
 
-        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.setText("Aceptar");
         jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBuscarActionPerformed(evt);
+            }
+        });
+
+        jComboBoxProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxProveedorActionPerformed(evt);
             }
         });
 
@@ -67,8 +79,8 @@ listener listener1= new listener();
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBoxProveedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 27, Short.MAX_VALUE)
                         .addComponent(jLabel2))
@@ -83,11 +95,11 @@ listener listener1= new listener();
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                    .addComponent(jComboBoxProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVolver)
                     .addComponent(jButtonBuscar))
@@ -104,9 +116,15 @@ listener listener1= new listener();
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-       dispose();
-          controlProveedores1.modificarDatosProveedor();
+        String nombre = (String) jComboBoxProveedor.getSelectedItem(); 
+        controlProveedores1.modificarDatosProveedor(nombre);
+        dispose();
+          //controlProveedores1.modificarDatosProveedor();
     }//GEN-LAST:event_jButtonBuscarActionPerformed
+
+    private void jComboBoxProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxProveedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,14 +165,40 @@ listener listener1= new listener();
         public void run() {
         new VentanaModificaProveedor().setVisible(true);
         }
+        //</editor-fold>
+
+        /* Create and display the form */
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+        new VentanaModificaProveedor().setVisible(true);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+        new VentanaModificaProveedor().setVisible(true);
+        }
         });*/
+    }
+
+    /**
+     * Metodo para obtener una lista de la base de datos
+     * @throws SQLException
+     */
+    public void cargaComboBox() throws SQLException{
+        ArrayList<String> listaproveedores1=new ArrayList<String>();
+        listaproveedores1=controlProveedores1.llenaComboBox();
+        for(int j=0;j<listaproveedores1.size();j++){
+            jComboBoxProveedor.addItem(listaproveedores1.get(j));
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonVolver;
+    private javax.swing.JComboBox<String> jComboBoxProveedor;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

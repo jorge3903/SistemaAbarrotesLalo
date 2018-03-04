@@ -8,13 +8,13 @@ import mx.uam.ayd.SistemaAbarrotesLalo.negocio.ServicioProveedor;
 
 /**
  *
- * @author lalo
+ * @author Byakuya
  */
 public class ControlProveedores {
-    
     ServicioProveedor servicioProveedor1= new ServicioProveedor();
     Proveedor agregaProveedor;
-    
+    Proveedor modificarProveedor;
+   
     /**
      *
      */
@@ -30,11 +30,13 @@ public class ControlProveedores {
 
     void iniciaControlConsultarProveedor() throws SQLException {
        VentanaConsultaProveedor ventanaConsultarProveedor= new VentanaConsultaProveedor(this);
+       ventanaConsultarProveedor.cargaComboBox();
        ventanaConsultarProveedor.setVisible(true);
     }
 
-    void iniciaControlModificarProveedor() {
+    void iniciaControlModificarProveedor()throws SQLException  {
        VentanaModificaProveedor ventanaModificaProveedor= new VentanaModificaProveedor(this);
+       ventanaModificaProveedor.cargaComboBox();
        ventanaModificaProveedor.setVisible(true);
     }
 
@@ -63,7 +65,8 @@ public class ControlProveedores {
     }
 
     /**
-     *
+     *Metodo para agregar un proveedor
+     * 
      * @param id
      * @param proveedor
      * @param telefono
@@ -84,7 +87,8 @@ public class ControlProveedores {
     }
     
     /**
-     *
+     *Metodo para mostrar resultado en la consulta
+     * 
      * @param nombre
      * @return
      */
@@ -94,6 +98,17 @@ public class ControlProveedores {
         ventanaConsultarProveedorResultado.setVisible(true);
         return nombre;
     }
+  
+    Proveedor modificarProveedor(String id, String proveedor, String telefono, String nombre, String tipo) {
+        modificarProveedor= servicioProveedor1.modificarProveedor(id, proveedor, telefono, nombre, tipo);
+        return modificarProveedor;
+    }
 
-    
+    String modificarDatosProveedor(String nombre) {
+       VentanaModificaDatosProveedor  ventanaModificaDatosProveedor= new VentanaModificaDatosProveedor(this);
+       ventanaModificaDatosProveedor.nombre(nombre);
+       ventanaModificaDatosProveedor.setVisible(true);
+       return nombre;
+    }
 }
+
