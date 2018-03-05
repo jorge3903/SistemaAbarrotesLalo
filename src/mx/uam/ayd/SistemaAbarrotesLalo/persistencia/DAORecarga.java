@@ -4,7 +4,10 @@ package mx.uam.ayd.SistemaAbarrotesLalo.persistencia;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.Random;
+import mx.uam.ayd.SistemaAbarrotesLalo.modelo.Recarga;
 
 /**
  *
@@ -25,7 +28,7 @@ public class DAORecarga {
     /**
      *Recupera los montos de recargas contenidas dentro de un periodo de tiempo
      * @param periodo
-     * @return
+     * @return montorecargas
      * @throws SQLException
      */
     public int recuperaMontos(String periodo) throws SQLException {
@@ -64,9 +67,9 @@ public class DAORecarga {
     }
 
     /**
-     *Recupera las recargas realizadas contenidas dentro de un periodo de tiempo
+     *Recupera el numero de recargas realizadas dentro de un periodo de tiempo
      * @param periodo
-     * @return
+     * @return tamaño
      * @throws SQLException
      */
     public int recuperaTamaño(String periodo) throws SQLException {
@@ -98,7 +101,8 @@ public class DAORecarga {
         }
         return tamaño;
     }
-   /**
+
+    /**
      * Agrega una entidad de la clase Recarga dentro de la base de datos
      * @param recarga1
      * @return estado
@@ -115,6 +119,8 @@ public class DAORecarga {
                 + "VALUES (" + id + "," + recarga1.getMonto() + "," + "'"+dia+"-"+mes+"-"+año+"')");
         return true;
     }
+   
 }
+
 
 
