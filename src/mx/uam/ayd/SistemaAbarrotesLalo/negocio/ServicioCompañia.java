@@ -1,3 +1,5 @@
+ipackage mx.uam.ayd.SistemaAbarrotesLalo.negocio;
+
 import java.sql.SQLException;
 import mx.uam.ayd.SistemaAbarrotesLalo.modelo.Compañia;
 import mx.uam.ayd.SistemaAbarrotesLalo.persistencia.DAOCompañia;
@@ -19,6 +21,6 @@ public class ServicioCompañia {
     public boolean AgregarCompañia(String nombre) throws SQLException {
         boolean estado= DAOCompañia1.AgregarCompañia(nombre);
          return estado;       
-    }    
-   
+    }
+    
 }
