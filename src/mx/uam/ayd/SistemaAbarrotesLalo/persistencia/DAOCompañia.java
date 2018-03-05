@@ -1,3 +1,5 @@
+package mx.uam.ayd.SistemaAbarrotesLalo.persistencia;
+
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
