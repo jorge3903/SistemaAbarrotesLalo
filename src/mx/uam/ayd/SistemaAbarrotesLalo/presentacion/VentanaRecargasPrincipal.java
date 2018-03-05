@@ -201,5 +201,6 @@ ControlRecargas controlRecargas1=new ControlRecargas();
     private javax.swing.JButton jButtonRegistrarRecargas;
     private javax.swing.JButton jButtonVolverAlMenu;
     private javax.swing.JLabel jLabel1;
-    // End of variables declaration                   
+    // End of variables declaration   
+  
 }
