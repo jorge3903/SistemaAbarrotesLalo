@@ -108,14 +108,14 @@ public class DAORecarga {
      * @return estado
      * @throws SQLException
      */
-    public boolean AgregaRecarga(Recarga recarga1) throws SQLException {
+     public boolean AgregaRecarga(Recarga recarga1) throws SQLException {
        Statement statement = BaseDeDatos.getConexion().createStatement();
         Random al= new Random();
         int id = al.nextInt(1000);
         int dia= recarga1.getFechaActual().getDayOfMonth();
         int mes= recarga1.getFechaActual().getMonthValue();
         int año=recarga1.getFechaActual().getYear();
-         statement.execute("INSERT INTO VENTA (IDVENTA, MONTO, FECHA) \n"
+         statement.execute("INSERT INTO RECARGA (IDRECARGA, MONTO, FECHA) \n"
                 + "VALUES (" + id + "," + recarga1.getMonto() + "," + "'"+dia+"-"+mes+"-"+año+"')");
         return true;
     }
